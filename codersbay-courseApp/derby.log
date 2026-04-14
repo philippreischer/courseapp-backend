@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Apr 14 21:39:42 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019d-8d81-b767-000002f511f0 
+on database directory C:\Users\1_Phil\2_Wissen\5_Coden\codersbay\Java-Advanced\courseapp-backend\codersbay-courseApp\local with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@14dad5dc 
+Loaded from file:/C:/Users/phili/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=25.0.2+10-69
+user.dir=C:\Users\1_Phil\2_Wissen\5_Coden\codersbay\Java-Advanced\courseapp-backend\codersbay-courseApp
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

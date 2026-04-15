@@ -47,21 +47,14 @@ public class GetCourseController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CourseResponseBody> getById(@PathVariable long id) {
-        try {
             Course course = getCourseService.getById(id);
             return ResponseEntity.ok(new CourseResponseBody(course));
-        } catch (CourseNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
     }
 
     @GetMapping("/byTitle/{title}")
     public ResponseEntity<CourseResponseBody> getByTitle(@PathVariable String title) {
-        try {
             Course course = getCourseService.getByTitle(title);
             return ResponseEntity.ok(new CourseResponseBody(course));
-        } catch (CourseNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
+
     }
 }

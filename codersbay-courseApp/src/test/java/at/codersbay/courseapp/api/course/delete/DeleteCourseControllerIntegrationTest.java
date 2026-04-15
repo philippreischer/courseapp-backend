@@ -2,8 +2,6 @@ package at.codersbay.courseapp.api.course.delete;
 
 import at.codersbay.courseapp.api.course.Course;
 import at.codersbay.courseapp.api.course.CourseRepository;
-import at.codersbay.courseapp.api.user.User;
-import at.codersbay.courseapp.api.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

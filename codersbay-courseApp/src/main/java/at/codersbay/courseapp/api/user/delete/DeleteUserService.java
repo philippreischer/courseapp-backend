@@ -20,14 +20,14 @@ public class DeleteUserService {
 
         if (optionalUser.isEmpty()) {
             throw new UserNotFoundException(
-                    "could not find user by id '" + id + "'.");
+                    "Could not find user by id '" + id + "'.");
         }
 
         userRepository.deleteById(id);
 
         if (userRepository.findById(id).isPresent()) {
             throw new UserDeletionException(
-                    "could not delete user by id '" + id + "'.");
+                    "Could not delete user by id '" + id + "'.");
         }
     }
 
@@ -36,7 +36,7 @@ public class DeleteUserService {
 
         if (optionalUser.isEmpty()) {
             throw new UserNotFoundException(
-                    "could not find user by username '" + userName + "'.");
+                    "Could not find user by username '" + userName + "'.");
         }
 
         User user = optionalUser.get();
@@ -44,7 +44,7 @@ public class DeleteUserService {
 
         if (userRepository.findByUserName(userName).isPresent()) {
             throw new UserDeletionException(
-                    "could not delete user by username '" + userName + "'.");
+                    "Could not delete user by username '" + userName + "'.");
         }
     }
 }

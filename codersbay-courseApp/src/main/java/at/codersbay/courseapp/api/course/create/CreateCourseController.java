@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/course/")
+@RequestMapping("/api/course")
 public class CreateCourseController {
 
     @Autowired
@@ -31,9 +31,6 @@ public class CreateCourseController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        CourseResponseBody body = new CourseResponseBody();
-
-        try {
             Course course = createCourseService.createCourse(
                     createCourseDTO.getTitle(),
                     createCourseDTO.getDescription(),
@@ -41,16 +38,7 @@ public class CreateCourseController {
                     createCourseDTO.getEndDate(),
                     createCourseDTO.getMaxParticipants()
             );
-            return ResponseEntity.ok(new CourseResponseBody(course));
-        } catch (CourseAlreadyExistsException e) {
-            body.addErrorMessage(e.getMessage());
-            return new ResponseEntity<>(body, HttpStatus.CONFLICT);
+            return new ResponseEntity<>(new CourseResponseBody(course), HttpStatus.CREATED);
 
-        } catch(Throwable t) {
-            body.addErrorMessage("Es ist ein Fehler aufgetreten");
-            body.addErrorMessage(t.getMessage());
-
-            return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 }

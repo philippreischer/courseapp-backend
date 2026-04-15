@@ -56,7 +56,7 @@ public class Course {
 
     public Course(){};
 
-    public Course(String title, String description, LocalDate endDate, LocalDate startDate, int maxParticipants) {
+    public Course(String title, String description, LocalDate startDate, LocalDate endDate, int maxParticipants) {
         this.title = title;
         this.description = description;
         this.endDate = endDate;

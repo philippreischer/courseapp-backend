@@ -21,12 +21,12 @@ public class GetUserService {
     public User getById(long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(
-                        "could not find user by id '" + id + "'."));
+                        "Could not find user by id '" + id + "'."));
     }
 
     public User getByUserName(String userName) {
         return userRepository.findByUserName(userName)
                 .orElseThrow(() -> new UserNotFoundException(
-                        "could not find user by username '" + userName + "'."));
+                        "Could not find user by username '" + userName + "'."));
     }
 }

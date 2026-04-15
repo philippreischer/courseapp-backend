@@ -19,14 +19,14 @@ public class UpdateUserService {
     public User update(UpdateUserRequestDTO updateUserDTO) {
 
         if (updateUserDTO == null || updateUserDTO.getId() == null || updateUserDTO.getId() < 1) {
-            throw new InvalidUpdateException("invalid update data");
+            throw new InvalidUpdateException("Invalid update data");
         }
 
         Optional<User> optionalUser = userRepository.findById(updateUserDTO.getId());
 
         if (optionalUser.isEmpty()) {
             throw new UserNotFoundException(
-                    "could not find user by id '" + updateUserDTO.getId() + "'.");
+                    "Could not find user by id '" + updateUserDTO.getId() + "'.");
         }
 
         User user = optionalUser.get();

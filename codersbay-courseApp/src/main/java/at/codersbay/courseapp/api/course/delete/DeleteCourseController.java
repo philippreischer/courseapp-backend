@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/course/")
+@RequestMapping("/api/course")
 public class DeleteCourseController {
 
     @Autowired
@@ -20,16 +20,12 @@ public class DeleteCourseController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseBody> delete(@PathVariable long id) {
+
         ResponseBody responseBody = new ResponseBody();
+        deleteCourseService.deleteById(id);
+        responseBody.addMessage("Ok");
 
-        try {
-            deleteCourseService.deleteById(id);
-            responseBody.addMessage("Ok");
-            return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
 
-        } catch (CourseNotFoundException | CourseDeletionException e) {
-            responseBody.addErrorMessage(e.getMessage());
-            return new ResponseEntity<>(responseBody, HttpStatus.BAD_REQUEST);
-        }
     }
 }

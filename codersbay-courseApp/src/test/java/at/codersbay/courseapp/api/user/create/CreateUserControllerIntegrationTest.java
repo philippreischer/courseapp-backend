@@ -146,6 +146,30 @@ public class CreateUserControllerIntegrationTest {
     @Test
     void registerUser_duplicateUsername_returns409() throws Exception {
         String json = """
+                {
+                  "userName": "maxmuster",
+                  "firstName": "Max",
+                  "lastName": "Mustermann",
+                  "email": "max@mustermann.com",
+                  "password": "securePass123"
+                }
+                """;
+
+        mockMvc.perform(post("/api/user")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isCreated());
+
+        mockMvc.perform(post("/api/user")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isConflict());
+    }
+
+
+    @Test
+    void registerUser_duplicateEmail_returns409() throws Exception {
+        String json = """
             {
               "userName": "maxmuster",
               "firstName": "Max",
@@ -163,7 +187,6 @@ public class CreateUserControllerIntegrationTest {
         mockMvc.perform(post("/api/user")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
-                .andDo(print())
                 .andExpect(status().isConflict());
     }
 

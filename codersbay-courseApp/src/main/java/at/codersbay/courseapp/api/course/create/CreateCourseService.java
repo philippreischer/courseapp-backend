@@ -18,7 +18,7 @@ public class CreateCourseService {
 
         Optional<Course> existingTitle = courseRepository.findByTitle(title);
         if (existingTitle.isPresent()) {
-            throw new CourseAlreadyExistsException("Kursname ist bereits in Verwendung");
+            throw new CourseAlreadyExistsException("Kursname is already exist");
         }
 
         Course course = new Course(title, description, startDate, endDate, maxParticipants);

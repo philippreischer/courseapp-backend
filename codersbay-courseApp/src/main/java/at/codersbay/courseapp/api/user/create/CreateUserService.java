@@ -19,12 +19,12 @@ public class CreateUserService {
 
         Optional<User> existingUserName = userRepository.findByUserName(userName);
         if (existingUserName.isPresent()) {
-            throw new UserAlreadyExistsException("User ist bereits in Verwendung");
+            throw new UserAlreadyExistsException("Username is already exist");
         }
 
         Optional<User> existingEmail = userRepository.findByEmail(email);
         if (existingEmail.isPresent()) {
-            throw new UserAlreadyExistsException("Email ist bereits in Verwendung");
+            throw new UserAlreadyExistsException("Email is already exist");
         }
 
         User user = new User(userName, firstName, lastName, email, password);

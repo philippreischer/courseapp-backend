@@ -48,6 +48,8 @@ public class GetCourseControllerIntegrationTest {
     @BeforeEach
     void setUp() {
         courseRepository.deleteAll();
+        courseRepository.flush();
+
         Course course = new Course("Testing Course", "A course for testing",
                 startDate, endDate, 10);
         savedCourse = courseRepository.save(course);
@@ -93,6 +95,8 @@ public class GetCourseControllerIntegrationTest {
 
     @Test
     void getAllBooked_courseWithBooking_returns200() throws Exception {
+        userRepository.deleteAll();
+        userRepository.flush();
         User user = userRepository.save(
                 new User("maxmuster", "Max", "Mustermann",
                         "max@mustermann.com", "pass123"));

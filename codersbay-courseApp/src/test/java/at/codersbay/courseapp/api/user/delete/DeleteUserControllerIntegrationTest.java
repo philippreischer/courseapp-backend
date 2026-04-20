@@ -1,6 +1,7 @@
 package at.codersbay.courseapp.api.user.delete;
 
 
+import at.codersbay.courseapp.api.course.CourseRepository;
 import at.codersbay.courseapp.api.user.User;
 import at.codersbay.courseapp.api.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,6 +34,7 @@ public class DeleteUserControllerIntegrationTest {
     @BeforeEach
     void setUp() {
         userRepository.deleteAll();
+        userRepository.flush();
 
         User user = new User("maxmuster", "Max", "Mustermann",
                 "max@mustermann.com", "pass123");

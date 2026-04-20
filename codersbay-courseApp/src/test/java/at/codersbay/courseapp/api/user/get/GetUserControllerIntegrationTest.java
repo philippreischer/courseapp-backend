@@ -31,6 +31,8 @@ public class GetUserControllerIntegrationTest {
     @BeforeEach
     void setUp() {
         userRepository.deleteAll();
+        userRepository.flush();
+
         User user = new User("maxmuster", "Max", "Mustermann",
                 "max@mustermann.com", "pass123");
         savedUser = userRepository.save(user);

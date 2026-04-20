@@ -23,17 +23,7 @@ public class UpdateCourseController {
     public ResponseEntity<CourseResponseBody> update(
             @RequestBody UpdateCourseRequestDTO updateCourseDTO) {
 
-        try {
             Course course = updateCourseService.update(updateCourseDTO);
             return ResponseEntity.ok(new CourseResponseBody(course));
-
-        } catch (InvalidUpdateException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
-        } catch (CourseNotFoundException e) {
-            CourseResponseBody response = new CourseResponseBody();
-            response.addErrorMessage(e.getMessage());
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
     }
 }

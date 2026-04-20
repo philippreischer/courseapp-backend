@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -49,7 +50,7 @@ public class Course {
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private Set<Booking> bookings;
+    private Set<Booking> bookings = new HashSet<>();
 
     //@ManyToMany (mappedBy = "course")
     //private Set<User> users;

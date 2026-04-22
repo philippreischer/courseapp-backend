@@ -47,16 +47,5 @@ public class CreateUserRequestDTO {
     public void setPassword(String password) {
         this.password = password;
     }
-/*
-    public User toUser(){
-        return this.userName, this.firstName, this.lastName, this.email, this.password;
-    }
-
-    public User toUser() throws InvalidPropertyException {
-
-        return User.getInstance(this.userName, this.firstName, this.lastName....);
-
-    }
-*/
 
 }

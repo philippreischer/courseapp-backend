@@ -52,9 +52,6 @@ public class Course {
     @JsonManagedReference("course-booking")
     private Set<Booking> bookings = new HashSet<>();
 
-    //@ManyToMany (mappedBy = "course")
-    //private Set<User> users;
-
     public Course(){};
 
     public Course(String title, String description, LocalDate startDate, LocalDate endDate, int maxParticipants) {

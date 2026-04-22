@@ -1,4 +1,4 @@
-package at.codersbay.courseapp.api;
+package at.codersbay.courseapp;
 
 import at.codersbay.courseapp.api.course.booking.BookingServiceTest;
 import at.codersbay.courseapp.api.course.create.CreateCourseServiceTest;

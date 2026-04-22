@@ -53,22 +53,7 @@ public class User {
         this.password = password;
 
     }
-    /*
-        public static User getInstance(String userName, String firstName, String lastName) {
-        }
 
-
-            public static User getInstance(String userName, String firstName, String lastName, String email, String password)
-            throws InvalidPropertyException{
-
-                if(StringUtils.isEmpty(userName)) {
-                    throw new InvalidPropertyException("username is null or empty.");
-                }
-
-                return new User(userName, firstName, lastName, email, password);
-
-            }
-        */
     public long getId() {
         return id;
     }

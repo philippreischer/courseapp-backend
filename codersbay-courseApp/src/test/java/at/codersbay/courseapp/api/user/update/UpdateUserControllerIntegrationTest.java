@@ -173,22 +173,17 @@ public class UpdateUserControllerIntegrationTest {
                         .content(json))
                 .andExpect(status().isOk());
 
-        // Danach per GET prüfen ob wirklich gespeichert
         mockMvc.perform(get("/api/user/" + savedUser.getId()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstName").value("Persistenz"))
                 .andExpect(jsonPath("$.lastName").value("Mustermann"));
     }
 
-// ---------- Doppelte Email ----------
-
     @Test
     void update_duplicateEmail_returnsConflictOrError() throws Exception {
-        // Zweiten User anlegen
         userRepository.save(new User("anna", "Anna", "Beispiel",
                 "anna@beispiel.com", "pass456"));
 
-        // Versuche die Email des ersten Users auf die des zweiten zu ändern
         String json = """
             {
               "id": %d,

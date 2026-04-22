@@ -27,8 +27,6 @@ public class UpdateCourseServiceTest {
     @InjectMocks
     private UpdateCourseService updateCourseService;
 
-    // ---------- Helper ----------
-
     private Course createExistingCourse() {
         Course course = new Course("Java", "OOP",
                 LocalDate.of(2026, 2, 1),
@@ -38,11 +36,8 @@ public class UpdateCourseServiceTest {
         return course;
     }
 
-    // ---------- Happy Path ----------
-
     @Test
     void update_validData_updatesCourseSuccessfully() {
-        // Arrange
         Course existing = createExistingCourse();
         when(courseRepository.findById(1L)).thenReturn(Optional.of(existing));
         when(courseRepository.save(any(Course.class))).thenAnswer(
@@ -56,10 +51,8 @@ public class UpdateCourseServiceTest {
         dto.setEndDate(LocalDate.of(2026, 7, 30));
         dto.setMaxParticipants(20);
 
-        // Act
         Course result = updateCourseService.update(dto);
 
-        // Assert
         assertThat(result.getTitle()).isEqualTo("Java Advanced");
         assertThat(result.getDescription()).isEqualTo("Fortgeschrittene OOP");
         assertThat(result.getStartDate()).isEqualTo(LocalDate.of(2026, 5, 1));
@@ -67,8 +60,6 @@ public class UpdateCourseServiceTest {
         assertThat(result.getMaxParticipants()).isEqualTo(20);
         verify(courseRepository, times(1)).save(existing);
     }
-
-    // ---------- Teilweise Updates ----------
 
     @Test
     void update_onlyTitle_keepsOtherFieldsUnchanged() {
@@ -109,8 +100,6 @@ public class UpdateCourseServiceTest {
         assertThat(result.getTitle()).isEqualTo("Java");
         assertThat(result.getDescription()).isEqualTo("OOP");
     }
-
-    // ---------- Fehlerfälle ----------
 
     @Test
     void update_courseNotFound_throwsException() {

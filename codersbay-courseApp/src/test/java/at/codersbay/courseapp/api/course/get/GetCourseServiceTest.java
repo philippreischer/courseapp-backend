@@ -32,15 +32,11 @@ public class GetCourseServiceTest {
     @InjectMocks
     private GetCourseService getCourseService;
 
-    // ---------- Helper ----------
-
     private Course createCourse(String title, LocalDate start, LocalDate end) {
-        Course course = new Course(title, "Beschreibung", end, start, 10);
+        Course course = new Course(title, "Beschreibung", start, end,  10);
         course.setBookings(new HashSet<>());
         return course;
     }
-
-    // ---------- getById ----------
 
     @Test
     void getById_existingId_returnsCourse() {

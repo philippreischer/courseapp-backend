@@ -1,5 +1,7 @@
 package at.codersbay.courseapp;
 
+
+import at.codersbay.courseapp.api.course.booking.BookingControllerIntegrationTest;
 import at.codersbay.courseapp.api.course.create.CreateCourseControllerIntegrationTest;
 import at.codersbay.courseapp.api.course.delete.DeleteCourseControllerIntegrationTest;
 import at.codersbay.courseapp.api.course.get.GetCourseControllerIntegrationTest;
@@ -22,6 +24,7 @@ import org.junit.platform.suite.api.*;
         GetCourseControllerIntegrationTest.class,
         DeleteCourseControllerIntegrationTest.class,
         UpdateCourseControllerIntegrationTest.class,
+        BookingControllerIntegrationTest.class
 })
 @SuiteDisplayName("Alle Integration-Tests")
 class AllIntegrationTestsSuite {

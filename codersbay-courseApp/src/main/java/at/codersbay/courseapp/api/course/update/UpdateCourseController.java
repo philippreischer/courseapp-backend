@@ -2,10 +2,7 @@ package at.codersbay.courseapp.api.course.update;
 
 import at.codersbay.courseapp.api.course.Course;
 import at.codersbay.courseapp.api.course.CourseResponseBody;
-import at.codersbay.courseapp.api.course.exceptions.CourseNotFoundException;
-import at.codersbay.courseapp.api.exceptions.InvalidUpdateException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -49,7 +49,7 @@ public class Course {
     private int maxParticipants;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("course-booking")
     private Set<Booking> bookings = new HashSet<>();
 
     //@ManyToMany (mappedBy = "course")

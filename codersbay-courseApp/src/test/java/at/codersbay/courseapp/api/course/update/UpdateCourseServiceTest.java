@@ -31,8 +31,8 @@ public class UpdateCourseServiceTest {
 
     private Course createExistingCourse() {
         Course course = new Course("Java", "OOP",
-                LocalDate.of(2026, 4, 30),
                 LocalDate.of(2026, 2, 1),
+                LocalDate.of(2026, 4, 30),
                 10);
         course.setId(1L);
         return course;

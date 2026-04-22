@@ -3,6 +3,7 @@ package at.codersbay.courseapp.api.user.update;
 import at.codersbay.courseapp.api.user.User;
 import at.codersbay.courseapp.api.user.UserRepository;
 import at.codersbay.courseapp.api.exceptions.InvalidUpdateException;
+import at.codersbay.courseapp.api.user.exceptions.UserAlreadyExistsException;
 import at.codersbay.courseapp.api.user.exceptions.UserNotFoundException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,10 @@ public class UpdateUserService {
         User user = optionalUser.get();
 
         if (!StringUtils.isEmpty(updateUserDTO.getEmail())) {
+            Optional<User> existingEmail = userRepository.findByEmail(updateUserDTO.getEmail());
+            if (existingEmail.isPresent() && existingEmail.get().getId() != updateUserDTO.getId()) {
+                throw new UserAlreadyExistsException("Email already exists");
+            }
             user.setEmail(updateUserDTO.getEmail());
         }
 

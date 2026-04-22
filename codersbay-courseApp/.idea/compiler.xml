@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="courseApp" />
+        <module name="codersbay-courseApp" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="codersbay-courseApp" options="-parameters" />
       <module name="courseApp" options="-parameters" />
     </option>
   </component>

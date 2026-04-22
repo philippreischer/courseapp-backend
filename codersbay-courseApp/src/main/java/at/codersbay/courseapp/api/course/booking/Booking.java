@@ -20,7 +20,7 @@ public class Booking {
 
     @ManyToOne
     @MapsId("userId")
-    @JsonBackReference("course-booking")
+    @JsonBackReference("user-booking")
     private User user;
 
     private LocalDate bookedDate;
@@ -44,8 +44,12 @@ public class Booking {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public BookingId getId() {
+        return id;
+    }
+
+    public void setId(BookingId id) {
+        this.id = id;
     }
 
     public Course getCourse() {
@@ -56,12 +60,8 @@ public class Booking {
         this.course = course;
     }
 
-    public BookingId getId() {
-        return id;
-    }
-
-    public void setId(BookingId id) {
-        this.id = id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDate getBookedDate() {
@@ -74,5 +74,9 @@ public class Booking {
 
     public BookingStatus getStatus() {
         return status;
+    }
+
+    public void setStatus(BookingStatus status) {
+        this.status = status;
     }
 }

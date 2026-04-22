@@ -40,7 +40,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    @JsonManagedReference
+    @JsonManagedReference("user-booking")
     private Set<Booking> bookings;
 
     public User(){}

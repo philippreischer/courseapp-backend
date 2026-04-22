@@ -5,6 +5,7 @@ import at.codersbay.courseapp.api.response.ResponseBody;
 import at.codersbay.courseapp.api.user.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -28,6 +29,12 @@ public class GlobalExceptionHandler {
         body.addErrorMessage(e.getMessage());
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException e) {
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
 
     // ---------- 409 Conflict ----------
 

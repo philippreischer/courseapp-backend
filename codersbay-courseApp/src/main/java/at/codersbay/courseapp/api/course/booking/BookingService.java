@@ -40,8 +40,8 @@ public class BookingService {
 
     private void book(Course course, User user) {
         boolean alreadyBooked = course.getBookings().stream()
-                .anyMatch(booking -> booking.getUser().getId() == user.getId());
-
+                .anyMatch(booking -> booking.getUser().getId() == user.getId()
+                );
         if (alreadyBooked) {
             return;
         }

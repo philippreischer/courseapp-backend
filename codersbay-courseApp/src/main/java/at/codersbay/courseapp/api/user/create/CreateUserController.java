@@ -35,7 +35,8 @@ public class CreateUserController {
                 createUserDTO.getFirstName(),
                 createUserDTO.getLastName(),
                 createUserDTO.getEmail(),
-                createUserDTO.getPassword()
+                createUserDTO.getPassword(),
+                createUserDTO.getRole()
         );
         return new ResponseEntity<>(new UserResponseBody(user), HttpStatus.CREATED);
 

@@ -40,7 +40,7 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String role = "USER";
+    private String role;
 
 
     @OneToMany(mappedBy = "user")
@@ -49,13 +49,13 @@ public class User {
 
     public User(){}
 
-    public User(String userName, String firstName, String lastName, String email, String password) {
+    public User(String userName, String firstName, String lastName, String email, String password, String role) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-
+        this.role = role;
     }
 
     public long getId() {
